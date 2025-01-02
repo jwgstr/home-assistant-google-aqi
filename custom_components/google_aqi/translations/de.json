@@ -1,19 +1,24 @@
 {
     "title": "Google AQI",
-    "step": {
+    "config": {
+      "step": {
         "user": {
-            "data": {
-                "api_key": "API Schlüssel",
-                "latitude": "Breite",
-                "longitude": "Länge",
-                "interval": "Update Intervall (in Std)",
-                "forecast_interval": "Vorhersageintervall (in Std)",
-                "forecast_length": "Vorhersage Länge"
-            },
-            "description": "Bitte Details für die Google AQI.Integration eingeben",
-            "errors": {
-                "max_length_96": "Die Vorhersahe gunktioniert nur 96 Std in die Zukunft"
-            }
+          "title": "Google AQI Konfiguration",
+          "description": "Geben Sie die Konfigurationsdetails für Google AQI ein.",
+          "data": {
+            "api_key": "API Key",
+            "latitude": "Breitengrad",
+            "longitude": "Längengrad",
+            "interval": "Aktualisierungsintervall (Stunden)",
+            "forecast_interval": "Prognoseintervall (Stunden)",
+            "forecast_length": "Prognoselänge (Stunden)"
+          }
         }
+      },
+      "error": {
+        "max_length_96": "Die Prognoselänge darf 96 Stunden nicht überschreiten.",
+        "invalid_interval": "Das Intervall muss zwischen 1 und 24 Stunden liegen."
+      }
     }
-}
+  }
+  
