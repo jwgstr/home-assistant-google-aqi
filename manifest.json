@@ -1,0 +1,18 @@
+{
+    "domain": "google_aqi",
+    "name": "Google AQI",
+    "documentation": "https://github.com/bairnhard/google_aqi",
+    "dependencies": [],
+    "requirements": [],
+    "version": "1.0.0",
+    "codeowners": [
+        "@yourgithubusername"
+    ],
+    "iot_class": "cloud_polling",
+    "config_flow": true,
+    "integration_type": "service",
+    "categories": [
+        "health",
+        "environment"
+    ]
+}
