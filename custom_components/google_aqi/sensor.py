@@ -125,7 +125,7 @@ class GooglePollenAirQualityEntity(AirQualityEntity):
 
     def _process_forecast_data(self, data):
         """Process forecast data for pollen."""
-        if not data or "hourlyForecasts" not in data:
+        if not data or "dailyInfo" not in data:
             _LOGGER.warning("Received empty or invalid forecast data from API")
             self._forecast = []
             return
@@ -136,9 +136,9 @@ class GooglePollenAirQualityEntity(AirQualityEntity):
         self._forecast = [
             {
                 "datetime": forecast.get("date"),
-                "grass": [p for p in {forecast.get("pollenTypeInfo", {}) if p.get("code") == "GRASS"].get("indexInfo", {}).get("value")},
-                "tree":  [p for p in {forecast.get("pollenTypeInfo", {}) if p.get("code") == "TREE"].get("indexInfo", {}).get("value")},
-                "weed":  [p for p in {forecast.get("pollenTypeInfo", {}) if p.get("code") == "WEED"].get("indexInfo", {}).get("value")},,
+                "grass": [p for p in forecast.get("pollenTypeInfo", {}) if p.get("code") == "GRASS"][0].get("indexInfo", {}).get("value"),
+                "tree":  [p for p in forecast.get("pollenTypeInfo", {}) if p.get("code") == "TREE"][0].get("indexInfo", {}).get("value"),
+                "weed":  [p for p in forecast.get("pollenTypeInfo", {}) if p.get("code") == "WEED"][0].get("indexInfo", {}).get("value")
             }
             for forecast in data["dailyInfo"]
         ]
