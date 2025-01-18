@@ -77,9 +77,8 @@ class GooglePollenAirQualityEntity(AirQualityEntity):
         return self._pollens.get("weed")
 
     async def async_update(self):
-        """Fetch both current and forecast data with optimized API calls."""
+        """Fetch forecast data with optimized API calls."""
         now = datetime.now()
-        self._next_current_api_call = now + timedelta(hours=self._update_interval)
         self._next_forecast_api_call = now + timedelta(hours=self._forecast_interval)
 
         tasks = []
