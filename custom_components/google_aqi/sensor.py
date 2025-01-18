@@ -20,8 +20,7 @@ class GooglePollenAirQualityEntity(AirQualityEntity):
         api_key,
         latitude,
         longitude,
-        forecast_interval,
-        forecast_length,
+        forecast_interval
     ):
         self.hass = hass
         self._api_key = api_key

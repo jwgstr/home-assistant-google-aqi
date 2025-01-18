@@ -10,7 +10,7 @@ class GooglePollenConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     async def async_step_user(self, user_input=None):
         """Handle the initial step where the user configures the integration."""
         if user_input is not None:
-            # Validate forecast length and intervals
+            # Validate forecast interval
             if (
                 user_input["forecast_interval"] > 24
                 or user_input["forecast_interval"] < 1
