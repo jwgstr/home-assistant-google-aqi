@@ -1,22 +1,20 @@
 {
-    "title": "Google AQI",
+    "title": "Google Pollen",
+    "description": "Monitors pollen levels using the Google Pollen service.",
     "config": {
       "step": {
         "user": {
-          "title": "Google AQI Configuration",
-          "description": "Enter the configuration details for Google AQI.",
+          "title": "Configure Google Pollen",
+          "description": "Set up the Google Pollen integration.",
           "data": {
-            "api_key": "API Key",
+            "api_key": "Your API Key",
             "latitude": "Latitude",
             "longitude": "Longitude",
-            "interval": "Update Interval (minutes)",
-            "forecast_interval": "Forecast Interval (hours)",
-            "forecast_length": "Forecast Length (hours)"
+            "forecast_interval": "Forecast Interval (hours)"
           }
         }
       },
       "error": {
-        "max_length_96": "Forecast length cannot exceed 96 hours.",
         "invalid_interval": "Interval must be between 1 and 24 hours."
       }
     }

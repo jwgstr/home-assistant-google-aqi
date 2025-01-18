@@ -1,6 +1,6 @@
 # Define custom services for the integration
 refresh_aqi_data:
-  description: "Refresh the AQI data manually."
+  description: "Refresh the Pollen data manually."
   fields:
     force:
       description: "Force a refresh, even if the update interval hasn't passed."

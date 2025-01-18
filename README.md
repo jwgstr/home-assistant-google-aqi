@@ -1,7 +1,11 @@
 # Google AQI
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=for-the-badge)](https://hacs.xyz/docs/setup/custom_repositories)
-[![GitHub release](https://img.shields.io/github/v/release/bairnhard/home-assistant-google-aqi?style=for-the-badge)](https://github.com/bairnhard/home-assistant-google-aqi/releases)
+[![GitHub release](https://img.shields.io/github/v/release/jwgstr/home-assistant-google-aqi?style=for-the-badge)](https://github.com/jwgstr/home-assistant-google-aqi/releases)
+
+A fork of @bairnhard's Google AQI HACS custom component.  This is experimental and meant as a starting place for integrating back into his work.  The remainder of the README needs to be udpated.
+
+FIXME: update the README as it currently is the same as @bairnhard's Google AQI HACS custom component (however, it largely is setup in the same way for now)
 
 A custom integration for Home Assistant to monitor air quality using Google’s Air Quality API. This integration fetches current air quality data and provides forecasts for up to 96 hours in the future.
 
@@ -21,11 +25,11 @@ A custom integration for Home Assistant to monitor air quality using Google’s 
 ### Using HACS
 1. Open HACS in your Home Assistant instance.
 2. Go to **Integrations** and click **+ Explore & Download Repositories**.
-3. Add this repository as a custom repository: `https://github.com/bairnhard/home-assistant-google-aqi`.
+3. Add this repository as a custom repository: `https://github.com/jwgstr/home-assistant-google-aqi`.
 4. Search for **Google AQI** and install the integration.
 
 ### Manual Installation
-1. Download the latest release from the [Releases page](https://github.com/bairnhard/home-assistant-google-aqi/releases).
+1. Download the latest release from the [Releases page](https://github.com/jwgstr/home-assistant-google-aqi/releases).
 2. Extract the contents into your Home Assistant `custom_components/google_aqi/` directory.
 3. Restart Home Assistant.
 

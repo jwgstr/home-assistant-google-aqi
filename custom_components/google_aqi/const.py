@@ -1,1 +1,1 @@
-DOMAIN = "google_aqi"
+DOMAIN = "google_pollen"
