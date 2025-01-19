@@ -6,6 +6,8 @@
 A fork of @bairnhard's Google AQI HACS custom component.  This is experimental and meant as a starting place for integrating back into his work.  The remainder of the README needs to be udpated.
 
 FIXME: update the README as it currently is the same as @bairnhard's Google AQI HACS custom component (however, it largely is setup in the same way for now)
+FIXME: turns out this approach likely won't work and we'll need to baseline off of something else like the Tomorrowio component in core.
+FIXME: Going to explore a RESTFul Sensor first as that would likely be less work and add it here in this README if it does
 
 A custom integration for Home Assistant to monitor air quality using Google’s Air Quality API. This integration fetches current air quality data and provides forecasts for up to 96 hours in the future.
 
