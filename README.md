@@ -9,6 +9,29 @@ FIXME: update the README as it currently is the same as @bairnhard's Google AQI 
 FIXME: turns out this approach likely won't work and we'll need to baseline off of something else like the Tomorrowio component in core.
 FIXME: Going to explore a RESTFul Sensor first as that would likely be less work and add it here in this README if it does
 
+## RESTful Alternative
+
+For now I've setup this alternative which pulls a single day and maps the values from -1 (not availble) to 5 where 0-5 are the valid levels of pollen from the api.  The scan interval is 6 hours.  
+The API costs double the AQI api so keep that in mind when setting a value for scan_interval.
+
+```
+rest:
+  - scan_interval: 21600
+    resource: 'https://pollen.googleapis.com/v1/forecast:lookup?key=YOUR_KEY_HERE&location.longitude=YOUR_LONG&location.latitude=YOUR_LAT&days=1'
+    sensor:
+      - name: "google_pollen_grass"
+        value_template: "{{ ((value_json['dailyInfo'][0]['pollenTypeInfo']|selectattr('code', 'equalto', 'GRASS')|first)['indexInfo']|default('-1'))['value']|default('-1') }}"
+      - name: "google_pollen_tree"
+        value_template: "{{ ((value_json['dailyInfo'][0]['pollenTypeInfo']|selectattr('code', 'equalto', 'TREE')|first)['indexInfo']|default('-1'))['value']|default('-1') }}"
+      - name: "google_pollen_weed"
+        value_template: "{{ ((value_json['dailyInfo'][0]['pollenTypeInfo']|selectattr('code', 'equalto', 'WEED')|first)['indexInfo']|default('-1'))['value']|default('-1') }}"
+```
+
+
+######################
+
+
+
 A custom integration for Home Assistant to monitor air quality using Google’s Air Quality API. This integration fetches current air quality data and provides forecasts for up to 96 hours in the future.
 
 ## Features
