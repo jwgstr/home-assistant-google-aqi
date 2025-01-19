@@ -21,10 +21,22 @@ rest:
     sensor:
       - name: "google_pollen_grass"
         value_template: "{{ ((value_json['dailyInfo'][0]['pollenTypeInfo']|selectattr('code', 'equalto', 'GRASS')|first)['indexInfo']|default('-1'))['value']|default('-1') }}"
+      - name: "google_pollen_grass_details"
+        value_template: >
+            {% for i in value_json['dailyInfo'][0]['plantInfo']|selectattr("inSeason", "equalto", true)|selectattr("plantDescription.type", "equalto", "GRASS") %}{{ i['code'] }}: {{i['indexInfo']['value']}}
+            {% endfor %}        
       - name: "google_pollen_tree"
         value_template: "{{ ((value_json['dailyInfo'][0]['pollenTypeInfo']|selectattr('code', 'equalto', 'TREE')|first)['indexInfo']|default('-1'))['value']|default('-1') }}"
+      - name: "google_pollen_tree_details"
+        value_template: >
+            {% for i in value_json['dailyInfo'][0]['plantInfo']|selectattr("inSeason", "equalto", true)|selectattr("plantDescription.type", "equalto", "TREE") %}{{ i['code'] }}: {{i['indexInfo']['value']}}
+            {% endfor %}
       - name: "google_pollen_weed"
         value_template: "{{ ((value_json['dailyInfo'][0]['pollenTypeInfo']|selectattr('code', 'equalto', 'WEED')|first)['indexInfo']|default('-1'))['value']|default('-1') }}"
+      - name: "google_pollen_weed_details"
+        value_template: >
+            {% for i in value_json['dailyInfo'][0]['plantInfo']|selectattr("inSeason", "equalto", true)|selectattr("plantDescription.type", "equalto", "WEED") %}{{ i['code'] }}: {{i['indexInfo']['value']}}
+            {% endfor %}
 ```
 
 
